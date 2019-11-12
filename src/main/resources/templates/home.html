@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html 	xmlns:th="http://thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/leyout">
+	<head>
+		<meta charset="UTF-8">
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+		
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- 		<meta charset="ISO-8859-1"> -->
+		<title>UniMaps</title>
+		<style type="text/css">
+			.option {
+				color: #039be5;
+			}
+			.option:hover {
+				color: #039be5;
+			}
+		</style>
+	</head>
+	<body>
+		<nav style="background-color: #293E97;">
+			<div class="nav-wrapper">
+				<a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+<!--         		<li><a href="sass.html">Sass</a></li> -->
+<!--         		<li><a href="badges.html">Components</a></li> -->
+        			<li><a href="/">Deslogar</a></li>
+				</ul>
+        	</div>
+		</nav>
+		<ul id="slide-out" class="sidenav">
+		    <li>
+		    	<div class="user-view">
+			    	<div class="background" style="background-color: #293E97;">
+			    	</div>
+			    	<a href="#user"><img src="images/logo.png"></a>
+			    	<a href="#name"><span class="white-text name">Nome do usuário</span></a>
+			    	<a href="#email"><span class="white-text email">email@edu.univali.br</span></a>
+		    	</div>
+		    </li>
+<!-- 		    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li> -->
+<!-- 		    <li><a href="#!">Second Link</a></li> -->
+<!-- 		    <li><div class="divider"></div></li> -->
+<!-- 		    <li><a class="subheader">Subheader</a></li> -->
+<!-- 		    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
+		</ul>
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col s6 offset-s3">
+					<h5 class="center" style="margin-bottom: 7%;"><strong>Localizações<strong/></h5>
+					<div class="row card-panel" style="background-color: #293E97">
+					    <div class="col s12" style="padding: 0;">
+					    	<ul class="tabs tabs-transparent">
+					        	<li class="tab col s2"><a class="option" href="#test1">A</a></li>
+					        	<li class="tab col s2"><a class="option" href="#test2">B</a></li>
+					        	<li class="tab col s2"><a class="option" href="#test3">C</a></li>
+					        	<li class="tab col s2"><a class="option" href="#test4">D</a></li>
+					        	<li class="tab col s2"><a class="option" href="#test5">E</a></li>
+					        	<li class="tab col s2"><a class="option" href="#test6">F</a></li>
+					    	</ul>
+					    </div>
+					    <div id="test1" class="col s12" style="padding: 0;">
+					    	<ul class="collapsible">
+							    <li th:each="blocoA : ${bloco_a}">
+<!-- 							    <a class="right-align" href="http://localhost:8080/pavilhao/remover/${blocoA.id}">remover</a> -->
+							    	<div class="collapsible-header"><span th:text="${blocoA.nome}"></span></div>
+							    	<div class="collapsible-body" style="background-color: #FFFFFF;">
+							    		<span>Lorem ipsum dolor sit amet.</span>
+							    	</div>
+							    </li>
+							</ul>
+					    </div>
+					    <div id="test2" class="col s12" style="padding: 0;">
+					    	<ul class="collapsible">
+								<li th:each="blocoB : ${bloco_b}">
+							    	<div class="collapsible-header"><span th:text="${blocoB.nome}"></span></div>
+							    	<div class="collapsible-body" style="background-color: #FFFFFF;">
+							    		<span>Lorem ipsum dolor sit amet.</span>
+							    	</div>
+							    </li>
+							</ul>
+					    </div>
+					    <div id="test3" class="col s12" style="padding: 0;">
+					    	<ul class="collapsible">
+								<li th:each="blocoC : ${bloco_c}">
+							    	<div class="collapsible-header"><span th:text="${blocoC.nome}"></span></div>
+							    	<div class="collapsible-body" style="background-color: #FFFFFF;">
+							    		<span>Lorem ipsum dolor sit amet.</span>
+							    	</div>
+							    </li>
+							</ul>
+					    </div>
+					    <div id="test4" class="col s12" style="padding: 0;">
+					    	<ul class="collapsible">
+								<li th:each="blocoD : ${bloco_d}">
+							    	<div class="collapsible-header"><span th:text="${blocoD.nome}"></span></div>
+							    	<div class="collapsible-body" style="background-color: #FFFFFF;">
+							    		<span>Lorem ipsum dolor sit amet.</span>
+							    	</div>
+							    </li>
+							</ul>
+					    </div>
+					    <div id="test5" class="col s12" style="padding: 0;">
+					    	<ul class="collapsible">
+								<li th:each="blocoE : ${bloco_e}">
+							    	<div class="collapsible-header"><span th:text="${blocoE.nome}"></span></div>
+							    	<div class="collapsible-body" style="background-color: #FFFFFF;">
+							    		<span>Lorem ipsum dolor sit amet.</span>
+							    	</div>
+							    </li>
+							</ul>
+					    </div>
+					    <div id="test6" class="col s12" style="padding: 0;">
+					    	<ul class="collapsible">
+								<li th:each="blocoF : ${bloco_f}">
+							    	<div class="collapsible-header"><span th:text="${blocoF.nome}"></span></div>
+							    	<div class="collapsible-body" style="background-color: #FFFFFF;">
+							    		<span>Lorem ipsum dolor sit amet.</span>
+							    	</div>
+							    </li>
+							</ul>
+					    </div>
+					  </div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div id="menuCriar" class="modal">
+    		<div class="modal-content row" style="margin-bottom: 0;">
+      			<a href="#criarPavilhao" class="col s12 btn waves-effect waves-light btn-small blue modal-close modal-trigger" style="margin-bottom: 2%;">Criar pavilhão</a>
+      			<a href="#" class="col s12 btn waves-effect waves-light btn-small blue modal-close modal-trigger">Criar sala</a>
+    		</div>
+  		</div>
+		
+		<div id="criarPavilhao" class="modal">
+    		<div class="modal-content">
+      			<h4>Criando pavilhão</h4>
+      			<form method="post" action="http://localhost:8080/pavilhao/cadastrar">
+      				Nome: <input type="text" value="" name="nome"/>
+					<p>Bloco:</p>
+      				<select name="bloco">
+					    <option th:each="blocoOpt : ${T(com.unimaps.api.enums.BlocoEnum).values()}"
+					        th:value="${blocoOpt}" th:text="${blocoOpt}"></option>
+					</select>
+					<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar
+					    <i class="material-icons right">send</i>
+					</button>
+      			</form>
+    		</div>
+  		</div>
+
+		<div id="criarPavilhao" class="modal">
+    		<div class="modal-content">
+      			<h4>Criando pavilhão</h4>
+      			<form method="post" action="http://localhost:8080/pavilhao/cadastrar">
+      				Nome: <input type="text" value="" name="nome"/>
+					<p>Bloco:</p>
+      				<select name="bloco">
+					    <option th:each="blocoOpt : ${T(com.unimaps.api.enums.BlocoEnum).values()}"
+					        th:value="${blocoOpt}" th:text="${blocoOpt}"></option>
+					</select>
+					<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar
+					    <i class="material-icons right">send</i>
+					</button>
+      			</form>
+    		</div>
+  		</div>
+		
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-large modal-trigger" style="background-color: #293E97;" href="#menuCriar">
+				<i class="large material-icons">add</i>
+			</a>
+		</div>
+		
+		
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('.fixed-action-btn');
+				var instances = M.FloatingActionButton.init(elems, {
+			    	hoverEnabled: false
+				});
+			});
+		
+			M.AutoInit();
+		</script>
+	</body>
+</html>
