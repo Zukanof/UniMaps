@@ -1,235 +1,390 @@
 <!DOCTYPE html>
-<html	xmlns:th="http://thymeleaf.org"
-		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/leyout">
-	<head>
-		<meta charset="UTF-8">
-		<!--Import Google Icon Font-->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-		<!--Import materialize.css-->
-		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-		
-		<!--Let browser know website is optimized for mobile-->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!-- 		<meta charset="ISO-8859-1"> -->
-		<title>UniMaps</title>
-	</head>
-	<body>
-		<nav style="background-color: #293E97;">
-			<div class="nav-wrapper">
-				<a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-<!--         		<li><a href="sass.html">Sass</a></li> -->
-<!--         		<li><a href="badges.html">Components</a></li> -->
-        			<li><a href="home"><strong>Logar</strong></a></li>
-				</ul>
-        	</div>
-		</nav>
-		<ul id="slide-out" class="sidenav">
-		    <li>
-		    	<div class="user-view">
-			    	<div class="background" style="background-color: #293E97;">
-			    	</div>
-			    	<a href="#user"><img class="center" src="images/logo.png"></a>
-		    	</div>
-		    </li>
-		</ul>
-		
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/leyout">
 
-		<div class="container">
-			<div class="row">
-				<div class="col s6 offset-s3">
-					<h5 class="center" style="margin-bottom: 7%;"><strong>Buscar no mapa<strong/></h5>
-					<div class="row">
-					    <div class="col s12">
-					    	<div class="card" style="background-color: #293E97">
-					    		<div class="card-content">
-						    		<div class="row" style="margin: 0;">
-						    			<form method="post" action="">
-							        		<a href="#selecionaOrigem" class="col s12 btn waves-effect waves-light btn-flat white modal-close modal-trigger" style="margin-bottom: 2%;">Selecionar origem</a>
-							        		<a href="#selecionaDestino" class="col s12 btn waves-effect waves-light btn-flat white modal-close modal-trigger" style="margin-bottom: 2%;">Selecionar destino</a>
-							        		<button class="btn waves-effect waves-light blue right disabled" type="submit" name="action"><strong>Buscar rota</strong>
-											    <i class="material-icons right">send</i>
-											</button>
-											
-											<div id="selecionaOrigem" class="modal">
-									    		<div class="modal-content">
-									      			<div class="row card-panel" style="background-color: #293E97; margin: 0;">
-													    <div class="col s12" style="padding: 0;">
-													    	<ul class="tabs tabs-transparent">
-													        	<li class="tab col s2"><a class="option" href="#origem1">A</a></li>
-													        	<li class="tab col s2"><a class="option" href="#origem2">B</a></li>
-													        	<li class="tab col s2"><a class="option" href="#origem3">C</a></li>
-													        	<li class="tab col s2"><a class="option" href="#origem4">D</a></li>
-													        	<li class="tab col s2"><a class="option" href="#origem5">E</a></li>
-													        	<li class="tab col s2"><a class="option" href="#origem6">F</a></li>
-													    	</ul>
-													    </div>
-													    <div id="origem1" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-															    <li th:each="blocoA : ${bloco_a}">
-															    	<div class="collapsible-header"><span th:text="${blocoA.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<div class="row" th:each="salaA : ${blocoA.salas}">
-																			<span th:text="${salaA.nome}"/>
-																		</div>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="origem2" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoB : ${bloco_b}">
-															    	<div class="collapsible-header"><span th:text="${blocoB.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<div class="row" th:each="salaB : ${blocoB.salas}">
-																			<span th:text="${salaB.nome}"/>
-																		</div>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="origem3" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoC : ${bloco_c}">
-															    	<div class="collapsible-header"><span th:text="${blocoC.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<div class="row" th:each="salaC : ${blocoC.salas}">
-																			<span th:text="${salaC.nome}"/>
-																		</div>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="origem4" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoD : ${bloco_d}">
-															    	<div class="collapsible-header"><span th:text="${blocoD.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<div class="row" th:each="salaD : ${blocoD.salas}">
-																			<span th:text="${salaD.nome}"/>
-																		</div>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="origem5" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoE : ${bloco_e}">
-															    	<div class="collapsible-header"><span th:text="${blocoE.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<div class="row" th:each="salaE : ${blocoE.salas}">
-																			<span th:text="${salaE.nome}"/>
-																		</div>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="origem6" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoF : ${bloco_f}">
-															    	<div class="collapsible-header"><span th:text="${blocoF.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<div class="row" th:each="salaF : ${blocoF.salas}">
-																			<span th:text="${salaF.nome}"/>
-																		</div>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
+<head>
+	<meta charset="UTF-8">
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+
+	<!-- Gmaps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqvb5KPUhEabvnQeaGoo7_8_H_1FWQJgs"
+		type="text/javascript"></script>
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- 		<meta charset="ISO-8859-1"> -->
+	<title>UniMaps</title>
+</head>
+
+<body>
+	<nav style="background-color: #293E97;">
+		<div class="nav-wrapper">
+			<a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
+					class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<!--         		<li><a href="sass.html">Sass</a></li> -->
+				<!--         		<li><a href="badges.html">Components</a></li> -->
+				<li><a href="home"><strong>Logar</strong></a></li>
+			</ul>
+		</div>
+	</nav>
+	<ul id="slide-out" class="sidenav">
+		<li>
+			<div class="user-view">
+				<div class="background" style="background-color: #293E97;">
+				</div>
+				<a href="#user"><img class="center" src="images/logo.png"></a>
+			</div>
+		</li>
+	</ul>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col s6 offset-s3">
+				<h5 class="center" style="margin-bottom: 7%;"><strong>Buscar no mapa<strong /></h5>
+				<div class="row">
+					<div class="col s12">
+						<div class="card" style="background-color: #293E97">
+							<div class="card-content">
+								<div class="row" style="margin: 0;">
+									<form method="post" action="">
+										<a href="#selecionaOrigem"
+											class="col s12 btn waves-effect waves-light btn-flat white modal-close modal-trigger"
+											style="margin-bottom: 2%;">Selecionar origem</a>
+										<a href="#selecionaDestino"
+											class="col s12 btn waves-effect waves-light btn-flat white modal-close modal-trigger"
+											style="margin-bottom: 2%;">Selecionar destino</a>
+										<button class="btn waves-effect waves-light blue right disabled" type="submit"
+											name="action"><strong>Buscar rota</strong>
+											<i class="material-icons right">send</i>
+										</button>
+
+										<div id="selecionaOrigem" class="modal">
+											<div class="modal-content">
+												<div class="row card-panel"
+													style="background-color: #293E97; margin: 0;">
+													<div class="col s12" style="padding: 0;">
+														<ul class="tabs tabs-transparent">
+															<li class="tab col s2"><a class="option"
+																	href="#origem1">A</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#origem2">B</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#origem3">C</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#origem4">D</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#origem5">E</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#origem6">F</a></li>
+														</ul>
 													</div>
-									    		</div>
-									  		</div>
-									  		<div id="selecionaDestino" class="modal">
-									    		<div class="modal-content">
-									      			<div class="row card-panel" style="background-color: #293E97; margin: 0;">
-													    <div class="col s12" style="padding: 0;">
-													    	<ul class="tabs tabs-transparent">
-													        	<li class="tab col s2"><a class="option" href="#destino1">A</a></li>
-													        	<li class="tab col s2"><a class="option" href="#destino2">B</a></li>
-													        	<li class="tab col s2"><a class="option" href="#destino3">C</a></li>
-													        	<li class="tab col s2"><a class="option" href="#destino4">D</a></li>
-													        	<li class="tab col s2"><a class="option" href="#destino5">E</a></li>
-													        	<li class="tab col s2"><a class="option" href="#destino6">F</a></li>
-													    	</ul>
-													    </div>
-													    <div id="destino1" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-															    <li th:each="blocoA : ${bloco_a}">
-															    	<div class="collapsible-header"><span th:text="${blocoA.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="destino2" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoB : ${bloco_b}">
-															    	<div class="collapsible-header"><span th:text="${blocoB.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="destino3" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoC : ${bloco_c}">
-															    	<div class="collapsible-header"><span th:text="${blocoC.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="destino4" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoD : ${bloco_d}">
-															    	<div class="collapsible-header"><span th:text="${blocoD.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="destino5" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoE : ${bloco_e}">
-															    	<div class="collapsible-header"><span th:text="${blocoE.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
-													    <div id="destino6" class="col s12" style="padding: 0;">
-													    	<ul class="collapsible">
-																<li th:each="blocoF : ${bloco_f}">
-															    	<div class="collapsible-header"><span th:text="${blocoF.nome}"></span></div>
-															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
-															    	</div>
-															    </li>
-															</ul>
-													    </div>
+													<div id="origem1" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoA : ${bloco_a}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoA.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaA : ${blocoA.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setOrigem([[${salaA.coordenada.lat} + \',\' + ${salaA.coordenada.lng} + \',\' + ${salaA.nome} ]]);"><span
+																				th:text="${salaA.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
 													</div>
-									      			
-									    		</div>
-									  		</div>
-						    			</form>
-						    		</div>
-					        	</div>
+													<div id="origem2" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoB : ${bloco_b}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoB.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaB : ${blocoB.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setOrigem([[${salaB.coordenada.lat} + \',\' + ${salaB.coordenada.lng} + \',\' + ${salaB.nome} ]]);"><span
+																				th:text="${salaB.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="origem3" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoC : ${bloco_c}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoC.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaC : ${blocoC.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setOrigem([[${salaC.coordenada.lat} + \',\' + ${salaC.coordenada.lng} + \',\' + ${salaC.nome} ]]);"><span
+																				th:text="${salaC.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="origem4" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoD : ${bloco_d}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoD.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaD : ${blocoD.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setOrigem([[${salaD.coordenada.lat} + \',\' + ${salaD.coordenada.lng} + \',\' + ${salaD.nome} ]]);"><span
+																				th:text="${salaD.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="origem5" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoE : ${bloco_e}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoE.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaE : ${blocoE.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setOrigem([[${salaE.coordenada.lat} + \',\' + ${salaE.coordenada.lng} + \',\' + ${salaE.nome} ]]);"><span
+																				th:text="${salaE.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="origem6" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoF : ${bloco_f}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoF.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaF : ${blocoF.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setOrigem([[${salaF.coordenada.lat} + \',\' + ${salaF.coordenada.lng} + \',\' + ${salaF.nome} ]]);"><span
+																				th:text="${salaF.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id="selecionaDestino" class="modal">
+											<div class="modal-content">
+												<div class="row card-panel"
+													style="background-color: #293E97; margin: 0;">
+													<div class="col s12" style="padding: 0;">
+														<ul class="tabs tabs-transparent">
+															<li class="tab col s2"><a class="option"
+																	href="#destino1">A</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#destino2">B</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#destino3">C</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#destino4">D</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#destino5">E</a></li>
+															<li class="tab col s2"><a class="option"
+																	href="#destino6">F</a></li>
+														</ul>
+													</div>
+													<div id="destino1" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoA : ${bloco_a}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoA.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaA : ${blocoA.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setDestino([[${salaA.coordenada.lat} + \',\' + ${salaA.coordenada.lng} + \',\' + ${salaA.nome} ]]);"><span
+																				th:text="${salaA.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="destino2" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoB : ${bloco_b}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoB.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaB : ${blocoB.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setDestino([[${salaB.coordenada.lat} + \',\' + ${salaB.coordenada.lng} + \',\' + ${salaB.nome} ]]);"><span
+																				th:text="${salaB.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="destino3" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoC : ${bloco_c}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoC.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaC : ${blocoC.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setDestino([[${salaC.coordenada.lat} + \',\' + ${salaC.coordenada.lng} + \',\' + ${salaC.nome} ]]);"><span
+																				th:text="${salaC.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="destino4" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoD : ${bloco_d}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoD.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaD : ${blocoD.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setDestino([[${salaD.coordenada.lat} + \',\' + ${salaD.coordenada.lng} + \',\' + ${salaD.nome} ]]);"><span
+																				th:text="${salaD.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="destino5" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoE : ${bloco_e}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoE.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaE : ${blocoE.salas}">
+																		<a href="#" class="modal-action modal-close"
+																			th:onclick="setDestino([[${salaE.coordenada.lat} + \',\' + ${salaE.coordenada.lng} + \',\' + ${salaE.nome} ]]);"><span
+																				th:text="${salaE.nome}" /></a>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div id="destino6" class="col s12" style="padding: 0;">
+														<ul class="collapsible">
+															<li th:each="blocoF : ${bloco_f}">
+																<div class="collapsible-header"><span
+																		th:text="${blocoF.nome}"></span></div>
+																<div class="collapsible-body"
+																	style="background-color: #FFFFFF;">
+																	<div class="row" th:each="salaF : ${blocoF.salas}">
+																			<a href="#" class="modal-action modal-close"
+																				th:onclick="setDestino([[${salaF.coordenada.lat} + \',\' + ${salaF.coordenada.lng} + \',\' + ${salaF.nome} ]]);"><span
+																					th:text="${salaF.nome}" /></a>
+																		</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		
-		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-		<script type="text/javascript">
-			M.AutoInit();
-		</script>
-	</body>
+
+		<div class="row">
+
+			<div class="col s12">
+				Rota:
+				<div id="map" style="height: 400px;"></div>
+			</div>
+			<!-- <div class="col s6">
+				Destino:
+				<div id="dest" style="height: 350px;"></div>
+			</div> -->
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		M.AutoInit();
+
+		var options = {
+			zoom: 19,
+			center: new google.maps.LatLng(-26.9144695, -48.662157),
+			mapTypeId: google.maps.MapTypeId.PLAIN,
+			mapTypeControl: false
+		};
+
+		var map = new google.maps.Map(document.getElementById('map'), options);
+
+		let origens = []
+		function setOrigem(text) {
+
+			let first = text.indexOf(',', 0)
+			let second = text.indexOf(',', first + 1)
+
+			let lat = text.substring(0, first)
+			let lng = text.substring(first + 1, second)
+			let nome = text.substring(second + 1, text.length)
+
+			if (origens.length > 0) {
+				origens[0].setMap(null);
+				origens.pop();
+			}
+
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(lat, lng),
+				map: map,
+				title: 'Origem: ' + nome
+			});
+
+			origens.push(marker);
+		}
+
+		destinos = []
+		function setDestino(text) {
+
+			let first = text.indexOf(',', 0)
+			let second = text.indexOf(',', first + 1)
+
+			let lat = text.substring(0, first)
+			let lng = text.substring(first + 1, second)
+			let nome = text.substring(second + 1, text.length)
+
+			if (destinos.length > 0) {
+				destinos[0].setMap(null);
+				destinos.pop();
+			}
+
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(lat, lng),
+				map: map,
+				title: 'Destino: ' + nome
+			});
+
+			destinos.push(marker);
+		}
+	</script>
+</body>
+
 </html>
