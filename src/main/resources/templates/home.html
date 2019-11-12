@@ -11,6 +11,11 @@
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- 		<meta charset="ISO-8859-1"> -->
+
+	<!-- Gmaps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqvb5KPUhEabvnQeaGoo7_8_H_1FWQJgs"
+		type="text/javascript"></script>
+
 	<title>UniMaps</title>
 	<style type="text/css">
 		.option {
@@ -77,12 +82,20 @@
 									<a class="right-align" th:href="'/pavilhao/remover/' + ${blocoA.id}"><i
 											class="material-icons">delete</i></a>
 
-									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
+									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar"
+										th:onclick="changeEditUrl([[${blocoA.id}]]);">
 										<i class="large material-icons">edit</i>
 									</a>
 								</div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
+									<div class="row">
+										<a data-target="addSala" class="modal-trigger" href="#menuAddSala">
+											<i class="material-icons">add</i></a>
+									</div>
+
+
 									<span>Lorem ipsum dolor sit amet.</span>
+
 								</div>
 							</li>
 						</ul>
@@ -159,11 +172,11 @@
 							<li th:each="blocoF : ${bloco_f}">
 								<div class="collapsible-header"><span th:text="${blocoF.nome}"></span>
 									<a class="right-align" th:href="'/pavilhao/remover/' + ${blocoF.id}"><i
-										class="material-icons">delete</i></a>
+											class="material-icons">delete</i></a>
 
-								<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
-									<i class="large material-icons">edit</i>
-								</a>
+									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
+										<i class="large material-icons">edit</i>
+									</a>
 								</div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
 									<span>Lorem ipsum dolor sit amet.</span>
@@ -174,6 +187,9 @@
 				</div>
 			</div>
 		</div>
+
+
+
 	</div>
 
 
@@ -208,11 +224,37 @@
 	<div id="editarPavilhao" class="modal">
 		<div class="modal-content">
 			<h4>Editando Pavilhão</h4>
-			<form method="post" action="/pavilhao/editar/">
+			<form id="editForm" method="post" action="/pavilhao/editar/">
 				Nome: <input type="text" value="" name="nome" />
 				<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar
 					<i class="material-icons right">send</i>
 				</button>
+			</form>
+		</div>
+	</div>
+
+	<div id="addSala" class="modal">
+		<div class="modal-content">
+			<h4>Adicionando Sala</h4>
+			<form method="post" action="/">
+				<div class="row">
+					Nome/Número: <input type="text" value="" name="nome" required />
+
+					<div class="col s6">
+						Latitude: <input type="number" value="" id="lat" name="lat" readonly />
+					</div>
+					<div class="col s6">
+						Longitude: <input type="number" value="" id="lng" name="lng" readonly />
+					</div>
+
+
+					Selecione no mapa o local da sala:
+					<div id="map" style="height: 350px;"></div>
+
+					<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -234,6 +276,44 @@
 		});
 
 		M.AutoInit();
+
+		var options = {
+			zoom: 19,
+			center: new google.maps.LatLng(-26.9145996, -48.662081),
+			mapTypeId: google.maps.MapTypeId.PLAIN,
+			mapTypeControl: false
+		};
+
+		var map = new google.maps.Map(document.getElementById('map'), options);
+
+		let markers = []
+		google.maps.event.addListener(map, 'click', function (event) {
+			if (markers.length > 0) {
+				markers[0].setMap(null);
+				markers.pop();
+			}
+			marker = new google.maps.Marker({ position: event.latLng, map: map });
+
+			let lat = document.getElementById('lat');
+			let lng = document.getElementById('lng');
+
+			lat.value = event.latLng.lat()
+			lng.value = event.latLng.lng()
+
+
+			console.log(event.latLng.lat())
+			console.log(event.latLng.lng())
+			markers.push(marker);
+		});
+
+
+		function changeEditUrl(id) {
+			console.log(id);
+			let form = document.getElementById("editForm")
+			form.action = "/pavilhao/editar/" + id
+		}
+
+
 	</script>
 </body>
 
