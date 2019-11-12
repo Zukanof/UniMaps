@@ -89,13 +89,10 @@
 								</div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
 									<div class="row">
-										<a data-target="addSala" class="modal-trigger" href="#menuAddSala">
-											<i class="material-icons">add</i></a>
-									</div>
-
-
-									<span>Lorem ipsum dolor sit amet.</span>
-
+										<a data-target="addSala" class="modal-trigger" href="#menuAddSala"
+											th:onclick="changeAddSalaUrl([[${blocoA.id}]]);">
+											<i class="material-icons">add</i>Adicionar Sala</a>
+									</div>									
 								</div>
 							</li>
 						</ul>
@@ -107,11 +104,17 @@
 									<a class="right-align" th:href="'/pavilhao/remover/' + ${blocoB.id}"><i
 											class="material-icons">delete</i></a>
 
-									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
+									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar"
+										th:onclick="changeEditUrl([[${blocoB.id}]]);">
 										<i class="large material-icons">edit</i>
 									</a>
 								</div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
+									<div class="row">
+										<a data-target="addSala" class="modal-trigger" href="#menuAddSala"
+											th:onclick="changeAddSalaUrl([[${blocoB.id}]]);">
+											<i class="material-icons">add</i>Adicionar Sala</a>
+									</div>
 									<span>Lorem ipsum dolor sit amet.</span>
 								</div>
 							</li>
@@ -124,10 +127,16 @@
 									<a class="right-align" th:href="'/pavilhao/remover/' + ${blocoC.id}"><i
 											class="material-icons">delete</i></a>
 
-									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
+									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar"
+										th:onclick="changeEditUrl([[${blocoC.id}]]);">
 										<i class="large material-icons">edit</i>
 									</a></div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
+									<div class="row">
+										<a data-target="addSala" class="modal-trigger" href="#menuAddSala"
+											th:onclick="changeAddSalaUrl([[${blocoC.id}]]);">
+											<i class="material-icons">add</i>Adicionar Sala</a>
+									</div>
 									<span>Lorem ipsum dolor sit amet.</span>
 								</div>
 							</li>
@@ -140,11 +149,17 @@
 									<a class="right-align" th:href="'/pavilhao/remover/' + ${blocoD.id}"><i
 											class="material-icons">delete</i></a>
 
-									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
+									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar"
+										th:onclick="changeEditUrl([[${blocoD.id}]]);">
 										<i class="large material-icons">edit</i>
 									</a>
 								</div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
+									<div class="row">
+										<a data-target="addSala" class="modal-trigger" href="#menuAddSala"
+											th:onclick="changeAddSalaUrl([[${blocoD.id}]]);">
+											<i class="material-icons">add</i>Adicionar Sala</a>
+									</div>
 									<span>Lorem ipsum dolor sit amet.</span>
 								</div>
 							</li>
@@ -157,11 +172,17 @@
 									<a class="right-align" th:href="'/pavilhao/remover/' + ${blocoE.id}"><i
 											class="material-icons">delete</i></a>
 
-									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
+									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar"
+										th:onclick="changeEditUrl([[${blocoE.id}]]);">
 										<i class="large material-icons">edit</i>
 									</a>
 								</div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
+									<div class="row">
+										<a data-target="addSala" class="modal-trigger" href="#menuAddSala"
+											th:onclick="changeAddSalaUrl([[${blocoE.id}]]);">
+											<i class="material-icons">add</i>Adicionar Sala</a>
+									</div>
 									<span>Lorem ipsum dolor sit amet.</span>
 								</div>
 							</li>
@@ -174,11 +195,17 @@
 									<a class="right-align" th:href="'/pavilhao/remover/' + ${blocoF.id}"><i
 											class="material-icons">delete</i></a>
 
-									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar">
+									<a data-target="editarPavilhao" class="modal-trigger" href="#menuEditar"
+										th:onclick="changeEditUrl([[${blocoF.id}]]);">
 										<i class="large material-icons">edit</i>
 									</a>
 								</div>
 								<div class="collapsible-body" style="background-color: #FFFFFF;">
+									<div class="row">
+										<a data-target="addSala" class="modal-trigger" href="#menuAddSala"
+											th:onclick="changeAddSalaUrl([[${blocoF.id}]]);">
+											<i class="material-icons">add</i>Adicionar Sala</a>
+									</div>
 									<span>Lorem ipsum dolor sit amet.</span>
 								</div>
 							</li>
@@ -236,7 +263,7 @@
 	<div id="addSala" class="modal">
 		<div class="modal-content">
 			<h4>Adicionando Sala</h4>
-			<form method="post" action="/">
+			<form method="post" action="/" id="salaForm">
 				<div class="row">
 					Nome/Número: <input type="text" value="" name="nome" required />
 
@@ -311,6 +338,12 @@
 			console.log(id);
 			let form = document.getElementById("editForm")
 			form.action = "/pavilhao/editar/" + id
+		}
+
+		function changeAddSalaUrl(id) {
+			console.log(id);
+			let form = document.getElementById("salaForm")
+			form.action = "/pavilhao/localizacao/cadastrar/" + id
 		}
 
 

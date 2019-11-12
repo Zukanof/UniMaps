@@ -18,8 +18,12 @@ public class Localizacao extends Vertice {
 		localizacaoDto.getId().ifPresent(id -> {
 			super.id = id;
 		});
-		this.coordenada.setLat(localizacaoDto.getLat());
-		this.coordenada.setLng(localizacaoDto.getLng());
+		
+		Coordenada coord = new Coordenada();
+		coord.setLat(localizacaoDto.getLat());
+		coord.setLng(localizacaoDto.getLng());
+		super.setCoordenada(coord);
+		
 		this.nome = localizacaoDto.getNome();
 	}
 

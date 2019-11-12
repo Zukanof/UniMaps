@@ -1,5 +1,7 @@
 package com.unimaps.api.controllers;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +52,16 @@ public class PavilhaoController {
 		Optional<Pavilhao> pavilhao = this.pavilhaoRepository.findById(pavilhaoId);
 		if(pavilhao.isPresent()) {
 			Pavilhao p = pavilhao.get();
-			p.getSalas().add(new Localizacao(newLoc));
+			
+			Localizacao localizacao = new Localizacao(newLoc);
+			if(p.getSalas() == null) {
+				ArrayList<Localizacao> salas = new ArrayList<Localizacao>();
+				salas.add(localizacao);
+				p.setSalas(salas);
+			}else {
+				p.getSalas().add(localizacao);
+			}
+				
 			this.pavilhaoRepository.save(p);
 		}
 		return "redirect:/home";
