@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,10 +25,21 @@ public class PavilhaoController {
 		return "redirect:/home";
 	}
 
-	@RequestMapping(value = "/remover/{pavilhao}", method = RequestMethod.GET)
-	public String removerPavilhao(String id) {
-		Optional<Pavilhao> pavilhao = this.pavilhaoRepository.findById(id);
+	@RequestMapping(value = "/remover/{pavilhaoId}", method = RequestMethod.GET )
+	public String removerPavilhao(@PathVariable(required = true) String pavilhaoId) {
+		Optional<Pavilhao> pavilhao = this.pavilhaoRepository.findById(pavilhaoId);
 		pavilhao.ifPresent(p -> this.pavilhaoRepository.delete(p));
+		return "redirect:/home";
+	}
+	
+	@RequestMapping(value = "/editar/{pavilhaoId}", method = RequestMethod.POST)
+	public String editar(@PathVariable(required = true) String pavilhaoId, PavilhaoDTO newPav) {
+		Optional<Pavilhao> pavilhao = this.pavilhaoRepository.findById(pavilhaoId);
+		if(pavilhao.isPresent()) {
+			Pavilhao p = pavilhao.get();
+			p.setNome(newPav.getNome());
+			this.pavilhaoRepository.save(p);
+		}
 		return "redirect:/home";
 	}
 
@@ -40,4 +52,5 @@ public class PavilhaoController {
 		pavilhao.setBloco(dto.getBloco());
 		return pavilhao;
 	}
+	
 }
