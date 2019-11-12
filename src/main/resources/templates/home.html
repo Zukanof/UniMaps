@@ -92,7 +92,10 @@
 										<a data-target="addSala" class="modal-trigger" href="#menuAddSala"
 											th:onclick="changeAddSalaUrl([[${blocoA.id}]]);">
 											<i class="material-icons">add</i>Adicionar Sala</a>
-									</div>									
+									</div>
+									<div class="row" th:each="salaA : ${blocoA.salas}">
+										<span th:text="${salaA.nome}"/>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -115,7 +118,9 @@
 											th:onclick="changeAddSalaUrl([[${blocoB.id}]]);">
 											<i class="material-icons">add</i>Adicionar Sala</a>
 									</div>
-									<span>Lorem ipsum dolor sit amet.</span>
+									<div class="row" th:each="salaB : ${blocoB.salas}">
+										<span th:text="${salaB.nome}"/>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -137,7 +142,9 @@
 											th:onclick="changeAddSalaUrl([[${blocoC.id}]]);">
 											<i class="material-icons">add</i>Adicionar Sala</a>
 									</div>
-									<span>Lorem ipsum dolor sit amet.</span>
+									<div class="row" th:each="salaC : ${blocoC.salas}">
+										<span th:text="${salaC.nome}"/>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -160,7 +167,9 @@
 											th:onclick="changeAddSalaUrl([[${blocoD.id}]]);">
 											<i class="material-icons">add</i>Adicionar Sala</a>
 									</div>
-									<span>Lorem ipsum dolor sit amet.</span>
+									<div class="row" th:each="salaD : ${blocoD.salas}">
+										<span th:text="${salaD.nome}"/>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -183,7 +192,9 @@
 											th:onclick="changeAddSalaUrl([[${blocoE.id}]]);">
 											<i class="material-icons">add</i>Adicionar Sala</a>
 									</div>
-									<span>Lorem ipsum dolor sit amet.</span>
+									<div class="row" th:each="salaE : ${blocoE.salas}">
+										<span th:text="${salaE.nome}"/>
+									</div>
 								</div>
 							</li>
 						</ul>
@@ -206,7 +217,9 @@
 											th:onclick="changeAddSalaUrl([[${blocoF.id}]]);">
 											<i class="material-icons">add</i>Adicionar Sala</a>
 									</div>
-									<span>Lorem ipsum dolor sit amet.</span>
+									<div class="row" th:each="salaF : ${blocoF.salas}">
+										<span th:text="${salaF.nome}"/>
+									</div>
 								</div>
 							</li>
 						</ul>

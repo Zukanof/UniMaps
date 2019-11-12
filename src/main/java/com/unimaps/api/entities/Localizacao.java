@@ -16,15 +16,15 @@ public class Localizacao extends Vertice {
 
 	public Localizacao(LocalizacaoDTO localizacaoDto) {
 		localizacaoDto.getId().ifPresent(id -> {
-			super.id = id;
-		});
-		
-		Coordenada coord = new Coordenada();
-		coord.setLat(localizacaoDto.getLat());
-		coord.setLng(localizacaoDto.getLng());
-		super.setCoordenada(coord);
-		
-		this.nome = localizacaoDto.getNome();
+            super.id = id;
+        });
+        
+        Coordenada coord = new Coordenada();
+        coord.setLat(localizacaoDto.getLat());
+        coord.setLng(localizacaoDto.getLng());
+        super.setCoordenada(coord);
+        
+        this.nome = localizacaoDto.getNome();
 	}
 
 	public String getNome() {

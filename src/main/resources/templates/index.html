@@ -69,7 +69,9 @@
 															    <li th:each="blocoA : ${bloco_a}">
 															    	<div class="collapsible-header"><span th:text="${blocoA.nome}"></span></div>
 															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
+															    		<div class="row" th:each="salaA : ${blocoA.salas}">
+																			<span th:text="${salaA.nome}"/>
+																		</div>
 															    	</div>
 															    </li>
 															</ul>
@@ -79,7 +81,9 @@
 																<li th:each="blocoB : ${bloco_b}">
 															    	<div class="collapsible-header"><span th:text="${blocoB.nome}"></span></div>
 															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
+															    		<div class="row" th:each="salaB : ${blocoB.salas}">
+																			<span th:text="${salaB.nome}"/>
+																		</div>
 															    	</div>
 															    </li>
 															</ul>
@@ -89,7 +93,9 @@
 																<li th:each="blocoC : ${bloco_c}">
 															    	<div class="collapsible-header"><span th:text="${blocoC.nome}"></span></div>
 															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
+															    		<div class="row" th:each="salaC : ${blocoC.salas}">
+																			<span th:text="${salaC.nome}"/>
+																		</div>
 															    	</div>
 															    </li>
 															</ul>
@@ -99,7 +105,9 @@
 																<li th:each="blocoD : ${bloco_d}">
 															    	<div class="collapsible-header"><span th:text="${blocoD.nome}"></span></div>
 															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
+															    		<div class="row" th:each="salaD : ${blocoD.salas}">
+																			<span th:text="${salaD.nome}"/>
+																		</div>
 															    	</div>
 															    </li>
 															</ul>
@@ -109,7 +117,9 @@
 																<li th:each="blocoE : ${bloco_e}">
 															    	<div class="collapsible-header"><span th:text="${blocoE.nome}"></span></div>
 															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
+															    		<div class="row" th:each="salaE : ${blocoE.salas}">
+																			<span th:text="${salaE.nome}"/>
+																		</div>
 															    	</div>
 															    </li>
 															</ul>
@@ -119,7 +129,9 @@
 																<li th:each="blocoF : ${bloco_f}">
 															    	<div class="collapsible-header"><span th:text="${blocoF.nome}"></span></div>
 															    	<div class="collapsible-body" style="background-color: #FFFFFF;">
-															    		<span>Lorem ipsum dolor sit amet.</span>
+															    		<div class="row" th:each="salaF : ${blocoF.salas}">
+																			<span th:text="${salaF.nome}"/>
+																		</div>
 															    	</div>
 															    </li>
 															</ul>

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
