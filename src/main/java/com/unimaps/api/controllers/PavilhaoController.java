@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.unimaps.api.dto.LocalizacaoDTO;
 import com.unimaps.api.dto.PavilhaoDTO;
+import com.unimaps.api.entities.Localizacao;
 import com.unimaps.api.entities.Pavilhao;
 import com.unimaps.api.repository.PavilhaoRepository;
 
@@ -38,6 +40,17 @@ public class PavilhaoController {
 		if(pavilhao.isPresent()) {
 			Pavilhao p = pavilhao.get();
 			p.setNome(newPav.getNome());
+			this.pavilhaoRepository.save(p);
+		}
+		return "redirect:/home";
+	}
+
+	@RequestMapping(value = "/localizacao/cadastrar/{pavilhaoId}", method = RequestMethod.POST)
+	public String cadastrarLocalizacao(@PathVariable(required = true) String pavilhaoId, LocalizacaoDTO newLoc) {
+		Optional<Pavilhao> pavilhao = this.pavilhaoRepository.findById(pavilhaoId);
+		if(pavilhao.isPresent()) {
+			Pavilhao p = pavilhao.get();
+			p.getSalas().add(new Localizacao(newLoc));
 			this.pavilhaoRepository.save(p);
 		}
 		return "redirect:/home";

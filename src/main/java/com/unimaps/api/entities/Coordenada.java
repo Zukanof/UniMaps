@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Coordenada {
 
 	private String id;
+	private double lat;
+	private double lng;
 	
 	public Coordenada() {
 	}
@@ -20,5 +22,21 @@ public class Coordenada {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
+		this.lng = lng;
 	}
 }
